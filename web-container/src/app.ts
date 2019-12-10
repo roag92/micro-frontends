@@ -1,5 +1,7 @@
-const express = require('express');
-const path = require('path');
+import express from "express";
+import path from "path";
+
+import { CatalogService } from './services'
 
 const PORT = 8080;
 
@@ -10,8 +12,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine','ejs');
 app.set('views', path.join(__dirname, '/views'));
 
-app.get('/', (req, res) => {
-  return res.render('welcome');
+app.get('/', async (req: any, res: any) => {
+  let catalog = await CatalogService.getCatalog();
+
+  return res.render('welcome', { catalog: catalog.html });
 });
 
 app.listen(process.env.PORT || PORT, () => console.log(`Web Container running on port: ${PORT}`));
