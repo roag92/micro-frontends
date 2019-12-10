@@ -1,0 +1,12 @@
+{
+  "name": "web-container",
+  "version": "1.0.0",
+  "description": "Web application using the micro frontend technique",
+  "main": "app.js",
+  "author": "Ricardo Roman",
+  "license": "MIT",
+  "devDependencies": {
+    "ejs": "^3.0.1",
+    "express": "^4.17.1"
+  }
+}
