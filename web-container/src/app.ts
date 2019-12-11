@@ -13,7 +13,7 @@ app.set('view engine','ejs');
 app.set('views', path.join(__dirname, '/views'));
 
 app.get('/', async (req: any, res: any) => {
-  let catalog = await CatalogService.getCatalog();
+  const catalog = await CatalogService.getCatalog();
 
   return res.render('welcome', { catalog: catalog.html || '' });
 });

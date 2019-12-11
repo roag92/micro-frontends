@@ -1,6 +1,6 @@
 import { IDictionary } from '../utils/dictionary';
 
-export interface ResultItemInterface {
+export interface IResultItem {
     name: string,
     html: string,
     meta: any,
@@ -9,12 +9,12 @@ export interface ResultItemInterface {
     errror?: any
 }
 
-export interface ResultInterface extends IDictionary {
-    [key: string]: ResultItemInterface;
+export interface IResults extends IDictionary {
+    [key: string]: IResultItem;
 }
 
-export interface ResponseInterface {
+export interface IResponse {
     success: boolean,
     error: any|null,
-    results: ResultInterface
+    results: IResults
 }

@@ -24,7 +24,7 @@ export default class Payload {
     }
 
     public buildPayload(): any {
-        let data: any = {};
+        const data: any = {};
 
         data[this.key] = {
             name: this.name,

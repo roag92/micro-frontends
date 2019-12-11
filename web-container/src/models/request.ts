@@ -1,17 +1,17 @@
 import {AxiosInstance, AxiosResponse} from 'axios';
 
-import { ResponseInterface, ResultItemInterface } from './response';
+import { IResponse, IResultItem } from './response';
 import Payload from './payload';
 
 export default class Request {
     constructor(protected client: AxiosInstance) {}
 
-    do(payload: Payload): Promise<ResultItemInterface> {
+    public do(payload: Payload): Promise<IResultItem> {
         return this.client.post(
             payload.getUrl(),
             payload.buildPayload()
         ).then((data: AxiosResponse) => {
-            let response = <ResponseInterface>data.data;
+            const response = data.data as IResponse;
 
             return response.results[payload.getKey()];
         }).catch((err: any) => {
