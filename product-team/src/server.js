@@ -17,20 +17,20 @@ hypernova({
     const app = express();
 
     const products = JSON.parse(fs.readFileSync('./data/products.json'));
-  
+
     app.use(express.static(path.join(process.cwd(), 'dist')));
 
     app.get('/getProducts', (req, res) => {
       res.json(products);
     });
-  
+
     return app;
   },
-  getComponent: async (name) => {
+  getComponent: async name => {
     if (name === CATALOG_COMPONENT) {
       return renderReact(name, Catalog);
     }
-  
+
     return null;
-  }
+  },
 });

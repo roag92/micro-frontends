@@ -11,7 +11,7 @@ class Catalog extends React.Component {
   render() {
     return (
       <ul className="pt-catalog">
-        {this.props.products.map((product) => {
+        {this.props.products.map(product => {
           return <Item key={product.slug} product={product}></Item>;
         })}
       </ul>
@@ -20,13 +20,11 @@ class Catalog extends React.Component {
 }
 
 Catalog.propTypes = {
-  products: PropTypes.arrayOf(
-    Item.propTypes.product
-  )
-}
+  products: PropTypes.arrayOf(Item.propTypes.product),
+};
 
 Catalog.defaultProps = {
-  products: []
-}
+  products: [],
+};
 
 export default Catalog;
