@@ -3,7 +3,11 @@ const NodemonPlugin = require('nodemon-webpack-plugin');
 
 const server = {
   target: 'node',
-  entry: path.join(__dirname, 'src/server.js'),
+  entry: {
+		main: [
+			'./src/server.js',
+		]
+	},
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'server.js',
@@ -13,7 +17,7 @@ const server = {
       {
         test: /\.js|\.jsx$/,
         exclude: /node_modules/,
-        use: 'babel-loader',
+        use: 'babel-loader'
       },
     ],
   },
@@ -27,7 +31,11 @@ const server = {
 
 const client = {
   target: 'web',
-  entry: path.join(__dirname, 'src/client.js'),
+  entry: {
+		main: [
+			'./src/client.js',
+		]
+	},
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'client.js',

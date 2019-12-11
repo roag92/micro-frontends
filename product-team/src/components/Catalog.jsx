@@ -1,11 +1,32 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
+import Item from './Item';
 
 class Catalog extends React.Component {
-    render() {
-        return (
-          <h1 className="pt-catalog">Hello from Catalog component</h1>
-        );
-      }
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <ul className="pt-catalog">
+        {this.props.products.map((product) => {
+          return <Item key={product.slug} product={product}></Item>;
+        })}
+      </ul>
+    );
+  }
+}
+
+Catalog.propTypes = {
+  products: PropTypes.arrayOf(
+    Item.propTypes.product
+  )
+}
+
+Catalog.defaultProps = {
+  products: []
 }
 
 export default Catalog;

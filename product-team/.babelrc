@@ -1,3 +1,15 @@
 {
-    "presets": ["airbnb"],
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "useBuiltIns": "usage",
+                "corejs": 3,
+                "loose": true,                
+                "debug": true,
+                "shippedProposals": true,
+            }
+        ],
+        "@babel/preset-react"
+    ]
 }
