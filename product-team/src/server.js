@@ -1,5 +1,6 @@
 import express from 'express';
 import path from 'path';
+import fs from 'fs';
 import hypernova from 'hypernova/server';
 import { renderReact } from 'hypernova-react';
 
@@ -14,12 +15,18 @@ hypernova({
   port: process.env.PORT || PORT,
   createApplication: () => {
     const app = express();
+
+    const products = JSON.parse(fs.readFileSync('./data/products.json'));
   
     app.use(express.static(path.join(process.cwd(), 'dist')));
+
+    app.get('/getProducts', (req, res) => {
+      res.json(products);
+    });
   
     return app;
   },
-  getComponent: (name) => {
+  getComponent: async (name) => {
     if (name === CATALOG_COMPONENT) {
       return renderReact(name, Catalog);
     }
