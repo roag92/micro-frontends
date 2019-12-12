@@ -1,7 +1,7 @@
 import express from 'express';
 import path from 'path';
 import hypernova from 'hypernova/server';
-import { renderVue, Vue } from 'hypernova-vue/server'
+import { renderVue, Vue } from 'hypernova-vue/server';
 
 import Checkout from './components/checkout.vue';
 
@@ -19,7 +19,7 @@ hypernova({
 
     return app;
   },
-  getComponent: (name) => {
+  getComponent: name => {
     if (name === CHECKOUT_COMPONENT) {
       return renderVue(name, Vue.extend(Checkout));
     }

@@ -9,7 +9,7 @@
     "dev": "webpack --watch --mode development",
     "start": "node dist/server.js",
     "lint": "eslint --fix src/",
-    "format": "prettier --write src/**/*.{js,jsx}"
+    "format": "prettier --write src/**/*.{js,vue}"
   },
   "dependencies": {
     "hypernova": "^2.5.0",
@@ -29,6 +29,7 @@
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.7.0",
     "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-vue": "^6.0.1",
     "nodemon-webpack-plugin": "^4.2.1",
     "prettier": "^1.19.1",
     "regenerator-runtime": "^0.13.3",
