@@ -10,7 +10,7 @@ class Catalog extends React.Component {
 
   render() {
     return (
-      <ul className="pt-catalog">
+      <ul id="pt-catalog">
         {this.props.products.map(product => {
           return <Item key={product.slug} product={product}></Item>;
         })}

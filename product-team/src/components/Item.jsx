@@ -38,7 +38,7 @@ class Item extends React.Component {
 
   render() {
     return (
-      <li key={this.props.product.slug}>
+      <li className="pt-item" key={this.props.product.slug}>
         <p>{this.props.product.name}</p>
         <img src={this.props.product.image} />
         <p>{this.formatMoney(this.props.product.price)}</p>
