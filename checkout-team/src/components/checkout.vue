@@ -1,15 +1,19 @@
 <template>
-  <div id="ct-cart">
+  <div id='ct-cart'>
     <h1>My Cart</h1>
     <ul>
       <Item
-        v-for="(item, index) in cart" :key="index"
-        :product="item.product"
-        :quantity="item.quantity"
-        :subTotal="item.subTotal"
+        v-for='(item, index) in cart' :key='index'
+        :product='item.product'
+        :quantity='item.quantity'
+        :subTotal='item.subTotal'
+        :formatter='formatter'
       />
     </ul>
-    <p>{{ total }}</p>
+    <div v-if='total > 0' id='ct-cart-total'>
+      <hr />
+      <p>{{ formatter.format(total) }}</p>
+    </div>
   </div>
 </template>
 
@@ -32,6 +36,15 @@ const Checkout = {
     total: {
       type: Number,
       default: 0
+    },
+    formatter: {
+      type: Object,
+      default: () => {
+        return new Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: 'USD',
+        });
+      }
     }
   },
 
@@ -43,13 +56,19 @@ const Checkout = {
     const addToCart = (product, quantity) => {
       let subTotal = product.price * quantity;
 
+      let prevTotal = props.total;
+
+      if (props.cart[product.slug]) {
+        prevTotal -= props.cart[product.slug].subTotal;
+      }
+
       props.cart[product.slug] = {
         product: product,
         quantity: quantity,
         subTotal: subTotal
       }
 
-      props.total += subTotal;
+      props.total = prevTotal + subTotal;
     };
 
     onMounted(() => {

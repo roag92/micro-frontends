@@ -9,8 +9,14 @@
 </head>
 <body>
     <h1>Welcome to MF!</h1>
-    <%- checkout %>
-    <%- catalog %>
+    <div class="row">
+      <div id="pt" class="column">
+        <%- catalog %>
+      </div>
+      <div id="ct" class="column">
+        <%- checkout %>
+      </div>
+    </div>
     <script src="http://localhost:3001/client.js"></script>
     <script src="http://localhost:3002/client.js"></script>
 </body>

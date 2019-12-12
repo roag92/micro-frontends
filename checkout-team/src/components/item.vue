@@ -1,8 +1,12 @@
 <template>
-  <li>
+  <li id="ct-cart-item">
     <p>{{ product.name }}</p>
-    <label>{{ quantity }}</label> X <label>{{ product.price }}</label> =
-    <label>{{ subTotal }}</label>
+    <ul>
+      <li>({{ quantity }})</li>
+      <li><img :src='product.image' /></li>
+      <li>{{ formatter.format(product.price) }}</li>
+      <li>{{ formatter.format(subTotal) }}</li>
+    </ul>
   </li>
 </template>
 
@@ -12,18 +16,12 @@ import Vue from 'vue';
 
 Vue.use(VueCompositionApi);
 
-function Product(slug, name, price, image) {
-  this.slug = slug;
-  this.name = name;
-  this.price = price;
-  this.image = image;
-}
-
 const Item = {
   props: {
     product: Object,
     quantity: Number,
     subTotal: Number,
+    formatter: Object,
   }
 };
 
