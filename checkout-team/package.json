@@ -5,9 +5,10 @@
   "author": "Ricardo Roman <ricardo.roman.ag@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --mode production",
+    "build": "yarn clean && webpack --mode production",
+    "clean": "rm -rf ./dist",
     "dev": "webpack --watch --mode development",
-    "start": "node dist/server.js",
+    "start": "yarn build && node dist/server.js",
     "lint": "eslint --fix src/",
     "format": "prettier --write src/**/*.{js,vue}"
   },

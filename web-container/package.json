@@ -6,8 +6,10 @@
   "author": "Ricardo Roman <ricardo.roman.ag@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
-    "start": "npm run build && node .",
+    "build": "yarn clean && yarn copy:assets && tsc",
+    "clean": "rm -rf ./dist",
+    "copy:assets": "mkdir -p ./dist && cp -r src/public/ src/views/ ./dist",
+    "start": "yarn build && node .",
     "dev": "ts-node-dev --respawn --transpileOnly ./src/app.ts",
     "lint": "tslint 'src/**/*.ts'",
     "format": "tslint-config-prettier-check ./tslint.json"

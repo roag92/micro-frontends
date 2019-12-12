@@ -1,15 +1,15 @@
 {
-    "defaultSeverity": "error",
-    "extends": [
-        "tslint:latest",
-        "tslint-config-prettier"
-    ],
-    "jsRules": {},
-    "rules": {
-        "ordered-imports": false,
-        "object-literal-sort-keys": false,
-        "member-ordering": false,
-        "no-console": false
-    },
-    "rulesDirectory": []
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:latest",
+    "tslint-config-prettier"
+  ],
+  "jsRules": {},
+  "rules": {
+    "ordered-imports": false,
+    "object-literal-sort-keys": false,
+    "member-ordering": false,
+    "no-console": false
+  },
+  "rulesDirectory": []
 }
