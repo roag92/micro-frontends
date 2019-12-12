@@ -6,7 +6,7 @@ import { renderReact } from 'hypernova-react';
 
 import Catalog from './components/Catalog';
 
-const PORT = 3031;
+const PORT = 3001;
 
 const CATALOG_COMPONENT = 'Catalog';
 
