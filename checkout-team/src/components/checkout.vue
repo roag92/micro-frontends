@@ -3,10 +3,9 @@
     <h1>My Cart</h1>
     <ul>
       <Item
-        v-for="item in cart"
-        v-bind:key="item.product.slug"
+        v-for="(item, index) in cart" :key="index"
         :product="item.product"
-        :quatity="item.quantity"
+        :quantity="item.quantity"
         :subTotal="item.subTotal"
       />
     </ul>
@@ -15,19 +14,25 @@
 </template>
 
 <script>
-import { value, onMounted } from 'vue';
+import VueCompositionApi, { onMounted, onUnmounted } from '@vue/composition-api';
+import Vue from 'vue';
 
 import Item from './item.vue';
+
+Vue.use(VueCompositionApi);
 
 const Checkout = {
   props: {
     cart: {
-      type: Array,
+      type: Object,
       default: () => {
-        return [];
+        return {};
       },
     },
-    total: Number,
+    total: {
+      type: Number,
+      default: 0
+    }
   },
 
   components: {
@@ -35,14 +40,27 @@ const Checkout = {
   },
 
   setup(props) {
-    onMounted(() => {
-      console.log('Checkout mounted!', props);
-    });
-  },
+    const addToCart = (product, quantity) => {
+      let subTotal = product.price * quantity;
 
-  render({ state, props, slots }) {
-    // `this` points to the render context and works same as before (exposes everything)
-    // `state` exposes bindings returned from `setup()` (with value wrappers unwrapped)
+      props.cart[product.slug] = {
+        product: product,
+        quantity: quantity,
+        subTotal: subTotal
+      }
+
+      props.total += subTotal;
+    };
+
+    onMounted(() => {
+      document.addEventListener('productAdded', (event) => {
+        addToCart(event.detail.product, event.detail.quantity);
+      });
+    });
+
+    onUnmounted(()=> {
+      document.removeEventListener('productAdded');
+    });
   },
 };
 

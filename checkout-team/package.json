@@ -2,7 +2,7 @@
   "name": "checkout-team",
   "version": "1.0.0",
   "description": "A micro frontend app for checkout products",
-  "author": "Ricardo Roman",
+  "author": "Ricardo Roman <ricardo.roman.ag@gmail.com>",
   "license": "MIT",
   "scripts": {
     "build": "webpack --mode production",
@@ -12,6 +12,7 @@
     "format": "prettier --write src/**/*.{js,vue}"
   },
   "dependencies": {
+    "@vue/composition-api": "^0.3.4",
     "hypernova": "^2.5.0",
     "hypernova-vue": "^3.0.4",
     "vue": "^2.6.10",

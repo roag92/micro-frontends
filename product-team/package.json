@@ -2,7 +2,7 @@
   "name": "product-team",
   "version": "1.0.0",
   "description": "A micro frontend app for listing products",
-  "author": "Ricardo Roman",
+  "author": "Ricardo Roman <ricardo.roman.ag@gmail.com>",
   "license": "MIT",
   "scripts": {
     "build": "webpack --mode production",
@@ -33,7 +33,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.17.0",
     "nodemon-webpack-plugin": "^4.2.1",
-    "prettier": "^1.19.1",    
+    "prettier": "^1.19.1",
     "regenerator-runtime": "^0.13.3",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10"

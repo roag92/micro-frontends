@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Web application using the micro frontend technique",
   "main": "dist/app.js",
-  "author": "Ricardo Roman",
+  "author": "Ricardo Roman <ricardo.roman.ag@gmail.com>",
   "license": "MIT",
   "scripts": {
     "build": "tsc",
