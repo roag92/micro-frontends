@@ -26,7 +26,7 @@ hypernova({
 
     return app;
   },
-  getComponent: (name) => {
+  getComponent: name => {
     if (name === CATALOG_COMPONENT) {
       return renderReact(name, Catalog);
     }
