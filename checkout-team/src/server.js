@@ -3,11 +3,11 @@ import path from 'path';
 import hypernova from 'hypernova/server';
 import { renderVue, Vue } from 'hypernova-vue/server'
 
-import Hello from './components/Hello.vue';
+import Checkout from './components/checkout.vue';
 
 const PORT = 3002;
 
-const HELLO_COMPONENT = 'Hello';
+const CHECKOUT_COMPONENT = 'Checkout';
 
 hypernova({
   devMode: true,
@@ -20,8 +20,8 @@ hypernova({
     return app;
   },
   getComponent: (name) => {
-    if (name === HELLO_COMPONENT) {
-      return renderVue(name, Vue.extend(Hello));
+    if (name === CHECKOUT_COMPONENT) {
+      return renderVue(name, Vue.extend(Checkout));
     }
 
     return null;

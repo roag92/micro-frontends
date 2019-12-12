@@ -1,4 +1,4 @@
 import { renderVue, Vue } from 'hypernova-vue';
-import Hello from './components/Hello.vue';
+import Checkout from './components/checkout.vue';
 
-renderVue('Hello', Vue.extend(Hello))();
+renderVue('Checkout', Vue.extend(Checkout))();
