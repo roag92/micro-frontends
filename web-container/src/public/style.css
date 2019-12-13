@@ -28,20 +28,40 @@ h1 {
 }
 
 #pt {
-  width: 70%;
+  width: 68%;
+  margin:1% 0 1% 1%;
+  border: 1px solid blue;
 }
 
 #ct {
-  width: 30%;
+  width: 28%;
+  margin:1% 0 1% 1%;
+  border: 1px solid orange;
 }
 
 #ct-cart, #pt-catalog {
   padding: 0 15px;
 }
 
-#ct-cart > ul > #ct-cart-item > p {
+#pt-catalog > .pt-item {
+  display: inline-block;
+  width: 30%;
+  margin: 1%;
+  text-align: center;
+}
+
+#pt-catalog > .pt-item p, #ct-cart > ul > #ct-cart-item > p {
   font-weight: bold;
   text-align: center;
+}
+
+#pt-catalog > .pt-item > img {
+  margin: auto;
+  max-width: 220px;
+}
+
+#pt-catalog > .pt-item > button:hover {
+  cursor: pointer;
 }
 
 #ct-cart > ul > #ct-cart-item > ul {

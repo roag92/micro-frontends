@@ -1,6 +1,7 @@
 <template>
   <div id='ct-cart'>
     <h1>My Cart</h1>
+    <h1 v-if='total == 0'>Cart is empty, please add some products!</h1>
     <ul>
       <Item
         v-for='(item, index) in cart' :key='index'
